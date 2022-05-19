@@ -2,44 +2,41 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png'
 import React, { Component, props} from 'react'
 import { Link } from 'react-router';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap'
+import { Grommet, Nav, Anchor, Button } from 'grommet'
+import { Github, Linkedin } from 'grommet-icons'
 
+
+const theme = {
+    "global": {
+      "colors": {
+        "background": {
+          "light": "#ffffff",
+          "dark": "#000000"
+        }
+      },
+      "font": {
+        "family": "-apple-system,\n         BlinkMacSystemFont, \n         \"Segoe UI\", \n         Roboto, \n         Oxygen, \n         Ubuntu, \n         Cantarell, \n         \"Fira Sans\", \n         \"Droid Sans\",  \n         \"Helvetica Neue\", \n         Arial, sans-serif,  \n         \"Apple Color Emoji\", \n         \"Segoe UI Emoji\", \n         \"Segoe UI Symbol\""
+      }
+    },
+    "button": {
+      "extend": [
+        null
+      ]
+    }
+  }
 
 class Navigation extends Component {
     render() {
         return (
-            <Navbar bg="dark" expand="expand">
-                <Container>
-                    <Navbar.Brand href="#home">
-                        <img
-                        src={require('./logo.png')}
-                        width="300"
-                        className="d-inline-block align-top"
-                        alt="React Bootstrap logo"
-                        />
-                    </Navbar.Brand>
-                        <Navbar variant="dark">
-                        <Container>
-                        <Nav className="me-auto">
-                            <Nav.Link href="./home" >Home</Nav.Link>
-                            <Nav.Link href="#features">About Me</Nav.Link>
-                            <Nav.Link href="#pricing">Projects</Nav.Link>
-                            <Nav.Link href="#pricing">  <div>
-                            <Button variant="primary" size="sm">
-                                Resume
-                            </Button>{' '}
-                            </div></Nav.Link>
-                            <Nav.Link href="#pricing">  <div>
-                            <Button variant="primary" size="sm">
-                                Hire Me!
-                            </Button>{' '}
-                            </div></Nav.Link>
 
-                        </Nav>
-                        </Container>
-                    </Navbar>
-                </Container>
-            </Navbar>
+            <Nav align="center" flex={false} direction="row-responsive" justify="center" pad="large">
+              <Anchor label="Home" href="/home" />
+              <Anchor label="About Me" href="/about-me" />
+              <Anchor label="Contact Me" href="/contact-me" />
+              <Button plain icon={<Github />} href="http://github.com/bradyscode" />
+              <Button plain icon={<Linkedin />} />
+            </Nav>
+
         );
     }
 }
